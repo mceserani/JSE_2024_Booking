@@ -18,5 +18,6 @@
   "homepage": "https://github.com/mceserani/JSE_2024_Booking#readme",
   "dependencies": {
     "inquirer": "^9.2.14"
-  }
+  },
+  "type": "module"
 }
