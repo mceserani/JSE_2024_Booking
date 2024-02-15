@@ -1,0 +1,22 @@
+{
+  "name": "jse_2024_booking",
+  "version": "1.0.0",
+  "description": "Gestione prenotazione eventi",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mceserani/JSE_2024_Booking.git"
+  },
+  "author": "Matteo Ceserani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mceserani/JSE_2024_Booking/issues"
+  },
+  "homepage": "https://github.com/mceserani/JSE_2024_Booking#readme",
+  "dependencies": {
+    "inquirer": "^9.2.14"
+  }
+}
