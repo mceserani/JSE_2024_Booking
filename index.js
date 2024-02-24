@@ -142,11 +142,47 @@ function bookTickets(){
 }
 
 function cancelBooking(){
-
-    main();
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "titolo",
+            message: "Seleziona l'evento: ",
+            choices: events.map((e) => e.titolo),
+            validate: (answer) => {
+                if (answer.length > 0) {
+                    return true;
+                }
+                return "Inserisci un titolo!";
+            }
+        },
+        {
+            type: "input",
+            name: "posti",
+            message: "Numero biglietti da annullare: ",
+            validate: (answer) => {
+                if (answer.length > 0 && answer.match(/^[0-9]+$/)) {
+                    return true;
+                }
+                return "Inserisci i posti da annullare!";
+            }
+        }
+    ]).then((answers) => {
+        for (let e of events){
+            if (e.titolo === answers.titolo){
+                if (Number(answers.posti) <= e.prenotati){
+                    e.prenotati -= Number(answers.posti);
+                    console.log("Annullamento effettuato!");
+                } else {
+                    console.log("Errore!");
+                }
+                break;
+            }
+        }
+        main();
+    });
 }
 
-// Funzione che visualizza il menu principale
-// e permette di scegliere l'operazione da eseguire
+// Funzione che visualizza il menu principale,
+// permette di scegliere l'operazione da eseguire
 // ed esegue l'operazione scelta
 main();
